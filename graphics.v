@@ -16,7 +16,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 module graphics (
                 input wire        clk,        // System clock.
-                input wire        clr,        // Asyncronous reset.
                 input wire [9:0]  x_px,       // X position actual pixel.
                 input wire [9:0]  y_px,       // Y position actual pixel.
                 input wire [9:0]  x_numbers,  // X position actual number.
@@ -38,13 +37,17 @@ module graphics (
     parameter ink = yellow;
     
 	// Numbers dimension.
-    parameter width_numbers = 21;
-    parameter height_numbers = 23;
+    parameter width_numbers = 16;
+    parameter height_numbers = 19;
 
     // Position x and y from image.
     reg [7:0] x_img;
     reg [7:0] y_img;
     reg pixel;
+    reg [2:0] color;
+    
+    // Set color out.
+    assign color_px = color;
    
     // Instance of image numbers.
     image
@@ -67,11 +70,11 @@ module graphics (
         if ((x_px >= x_numbers) && (x_px < x_numbers + width_numbers) && (y_px >= y_numbers) && (y_px < y_numbers + height_numbers))   
         begin
             if (pixel)
-                color_px = ink;
+                color <= ink;
             else
-                color_px = background_number;
+                color <= background_number;
         end
         else
-           color_px = background;
+           color <= background;
     end
 endmodule

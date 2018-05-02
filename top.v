@@ -28,6 +28,7 @@ module top (
             input wire  dec_vel          // Decrement numbers velocity.
         );
 
+    reg  mute;
     reg  [9:0] x_px;
     reg  [9:0] y_px;
     wire [2:0] color_px;
@@ -62,7 +63,7 @@ module top (
     numbers01 (
             .clk (px_clk),                  // Input clock: 12MHz
             .clr (clr),                     // Asynchronous reset
-            .color_px (color_px),           // Color RGB (16 colors) for actual pixel.
+            .color_px (color_px),           // Color RGB (8 colors) for actual pixel.
             .x_px(x_px),                    // Position x actual pixel.
             .y_px(y_px),                    // Position y actual pixel.
             .mute(mute),                    // Mute signal for a sound.

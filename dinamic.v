@@ -48,11 +48,11 @@ module dinamic (
     wire pixel;
     reg [9:0] incx = 1;              // Increment in a x direction.
     reg [9:0] incy = 2;              // Increment in a y direction.
-    reg [5:0] delay = 16;            // Delay for animation. 
+    reg [5:0] delay = 18;            // Delay for animation. 
     reg [31:0] counter = 0;          // Counter for delay. 
    
     // Increment and decrement animation.
-    always @(posedge counter[22])
+    always @(posedge counter[23])
     begin
         if (inc_vel) delay = delay + 1;
         if (dec_vel) delay = delay - 1;

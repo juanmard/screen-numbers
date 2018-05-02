@@ -49,7 +49,7 @@ module numbers (
     graphics
     graphics01 (
             .clk (clk),
-            .clr (clr),
+//            .clr (clr),
             .x_px (x_px),
             .y_px (y_px),
             .x_numbers (x_numbers),
